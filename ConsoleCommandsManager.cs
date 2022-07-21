@@ -13,7 +13,7 @@ namespace RadialGunSelect
         {
             ETGModConsole.Commands.AddGroup(prefix, (args) =>
             {
-                MorphUtils.LogRainbow($"{Module.MOD_NAME} is being made by Morphious86#6617 on Discord!");
+                MorphUtils.LogRainbow($"{Module.NAME} is being made by Morphious86#6617 on Discord!");
             });
         }
 

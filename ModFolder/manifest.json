@@ -1,0 +1,9 @@
+{
+    "name": "WeaponWheelSelect",
+    "version_number": "1.1.0",
+	"website_url": "https://github.com/Morphious87/WeaponWheelSelect",
+    "description": "Replaces the game's clunky weapon select with a more robust interface",
+    "dependencies": [
+        "MtG_API-Mod_the_Gungeon_API-1.1.3"
+    ]
+}

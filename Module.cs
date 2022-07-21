@@ -5,20 +5,24 @@ using System.Text;
 using System.Reflection;
 using UnityEngine;
 using SGUI;
+using BepInEx;
 
 namespace RadialGunSelect
 {
-    public class Module : ETGModule
+    [BepInDependency("etgmodding.etg.mtgapi")]
+    [BepInPlugin(GUID, NAME, VERSION)]
+    public class Module : BaseUnityPlugin
     {
-        public static readonly string MOD_NAME = "Weapon Wheel Select"; // referred to as RadialGunSelect internally
-        public static readonly string VERSION = "1.0.1";
+        public const string GUID = "morphious86.etg.radialgunselect";
+        public const string NAME = "Weapon Wheel Select";
+        public const string VERSION = "1.1.0";
 
-        public override void Init()
+        public void Start()
         {
-            
+            ETGModMainBehaviour.WaitForGameManagerStart(GMStart);
         }
 
-        public override void Start()
+        public void GMStart(GameManager g)
         {
             try
             {
@@ -26,17 +30,12 @@ namespace RadialGunSelect
                 ConsoleCommandsManager.Init();
                 RadialGunSelectController.Init();
 
-                MorphUtils.LogRainbow($"{MOD_NAME} v{VERSION} started successfully.");
+                MorphUtils.LogRainbow($"{NAME} v{VERSION} started successfully.");
             }
             catch (Exception e)
             {
-                MorphUtils.LogError($"{MOD_NAME} v{VERSION} failed to initialize!", e);
+                MorphUtils.LogError($"{NAME} v{VERSION} failed to initialize!", e);
             }
-        }
-
-        public override void Exit()
-        {
-
         }
     }
 }
